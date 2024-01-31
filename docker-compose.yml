@@ -1,0 +1,28 @@
+version: '3'
+
+services:
+ web:
+    image: mzapache
+    build:
+      context: ./apache
+      dockerfile: Dockerfile
+    container_name: myapache
+    ports:
+      - "80:80"
+    environment:
+      - MYSQL_HOST=my_mysql
+    networks:
+      - mz-app-network
+
+ db:
+    image: mzmysql
+    build:
+      context: ./mysql
+      dockerfile: Dockerfile
+    container_name: my_mysql
+    networks:
+      - mz-app-network
+
+networks:
+ mz-app-network:
+    driver: bridge
