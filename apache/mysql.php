@@ -13,7 +13,7 @@ if ($conn->connect_error) {
     die("Verbindungsfehler: " . $conn->connect_error);
 }
 
-// Überprüfen, ob das Formular gesendet wurde
+// Test: Überprüfen, ob das Formular gesendet wurde
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Daten aus dem Formular abrufen
     $name = $_POST["name"];
